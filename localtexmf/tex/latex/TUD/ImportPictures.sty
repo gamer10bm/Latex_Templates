@@ -1,0 +1,77 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ImportPictures}[2016/08/07 Package for importing Results pictures]
+
+\requirepackage{graphicx}
+\requirepackage{pgffor}
+\newcommand{\Import}[2]{%
+	\section{#2}
+	\subsection{Parallel}
+	\subsubsection{Without Ground Plane}
+	\begin{figure}[h]
+		\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/Elements vs Min Sidelobe #2 ll"}
+		\caption{Elements vs. Sidelobe of #2 Parallel Array w/o GP}
+	\end{figure}
+	\clearpage
+	\begin{figure}[h]
+		\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/Prescribed vs Actual #2 ll"}
+		\caption{Prescribed vs. Actual of #2 Parallel Array w/o GP}
+	\end{figure}
+	\clearpage
+  \foreach \index in {5, ..., #1} {%
+  	\begin{figure}[h]
+  		  	\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/#2/Etheta_\index"}\par%
+  		  	\caption{\index Element ETheta at #2 w/o GP}
+  	\end{figure}
+  	\clearpage
+  }
+  \subsubsection{With Ground Plane}
+  \begin{figure}[h]
+  	\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/Elements vs Min Sidelobe #2 ll (GP)"}
+  	\caption{Elements vs. Sidelobe of #2 Parallel Array w/ GP}
+  \end{figure}
+  \clearpage
+  \begin{figure}[h]
+  	\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/Prescribed vs Actual #2 ll (GP)"}
+  	\caption{Prescribed vs. Actual of #2 Parallel Array w/ GP}
+  \end{figure}
+  \clearpage
+  \foreach \index in {5, ..., #1} {%
+  	\begin{figure}[h]
+  		\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/#2/Etheta_\index_(GP)"}\par%
+  		\caption{\index Element ETheta at #2 w/ GP}
+  	\end{figure}}
+  	\clearpage
+  		\subsection{Perpendicular}
+  		\subsubsection{Without Ground Plane}
+  		\begin{figure}[h]
+  			\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/Elements vs Min Sidelobe #2 T"}
+  			\caption{Elements vs. Sidelobe of #2 Perpendicular Array w/o GP}
+  		\end{figure}
+  		\clearpage
+  		\begin{figure}[h]
+  			\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/Prescribed vs Actual #2 T"}
+  			\caption{Prescribed vs. Actual of #2 Perpendicular Array w/o GP}
+  		\end{figure}
+  		\clearpage
+  		\foreach \index in {5, ..., #1} {%
+  			\begin{figure}[h]
+  				\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/#2/Ephi_\index"}\par%
+  				\caption{\index Element EPhi at #2 w/o GP}
+  			\end{figure}
+  			\clearpage
+  		}
+  		\subsubsection{With Ground Plane}
+  		\begin{figure}[h]
+  			\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/Elements vs Min Sidelobe #2 T (GP)"}
+  			\caption{Elements vs. Sidelobe of #2 Perpendicular Array w/ GP}
+  		\end{figure}
+  		\clearpage
+  		\begin{figure}[h]
+  			\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/Prescribed vs Actual #2 T (GP)"}
+  			\caption{Prescribed vs. Actual of #2 Perpendicular Array w/ GP}
+  		\end{figure}
+  		\foreach \index in {5, ..., #1} {%
+  			\begin{figure}[h]
+  				\includegraphics[scale=1]{"C:/Users/bmiller/OneDrive - The University of Kansas/Results/#2/Ephi_\index_(GP)"}\par%
+  				\caption{\index Element EPhi at #2 w/ GP}
+  			\end{figure}}}
