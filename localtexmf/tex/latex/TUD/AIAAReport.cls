@@ -34,6 +34,7 @@
 \RequirePackage{wrapfig}
 \RequirePackage{mcode}
 \RequirePackage{amsmath}
+\RequirePackage{notoccite}
 %\RequirePackage[group-separator={,}]{siunitx}
 %\RequirePackage{showframe}
 
@@ -70,11 +71,50 @@
 \fancyhf{}
 \lhead{\includegraphics[width = 1.75in]{"KUHeader"}\vspace{-.5cm} \\
 }
-\lfoot{\includegraphics[width = .5in]{"JHFooter"} Aerospace Engineering Department }
+%\lfoot{\includegraphics[width = .45in]{"JHFooter"} Aerospace Engineering Department }
+\lfoot{\includegraphics[height = 4.5ex]{"JHFooter"} Aerospace Engineering Department }
 \rfoot{\thepage}
 }
 \pagestyle{plain}
 
+%Alter Abstract Environment
+\renewcommand{\abstractname}{Executive Summary}
+%\makeatletter
+%\renewenvironment{abstract}{%
+%	\if@twocolumn
+%	\section*{\abstractname}%
+%	\else %% <- here I've removed \small
+%	\begin{center}%
+%		{\bfseries \Large\abstractname\vspace{\z@}}%  %% <- here I've added \Large
+%	\end{center}%
+%	\quotation
+%	\fi}
+%{\if@twocolumn\else\endquotation\fi}
+%\makeatother
+
+\if@titlepage
+	\renewenvironment{abstract}{%
+		\titlepage
+		\null\vfil
+		\@beginparpenalty\@lowpenalty
+		\begin{center}%
+			\bfseries \Large \underline{\abstractname}
+			\@endparpenalty\@M
+	\end{center}}%
+	{\par\vfil\null\endtitlepage}
+\else
+	\renewenvironment{abstract}{%
+		\if@twocolumn
+		\section*{\abstractname}%
+		\else
+		\small
+		\begin{center}%
+			{\bfseries \underline{\abstractname}\vspace{-.5em}\vspace{\z@}}%
+		\end{center}%
+		\quotation
+		\fi}
+	{\if@twocolumn\else\endquotation\fi}
+\fi
 
 %Change commands
 \renewcommand\bibname{References}
